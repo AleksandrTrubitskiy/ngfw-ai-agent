@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>NGFW Feature Generator</title>
-</head>
+<head><title>NGFW Feature Generator</title></head>
 <body>
   <h1>Генерация фич для ultra-os-ngfw</h1>
   <form method="post">
@@ -11,9 +9,9 @@
       <option value="decoder">Декодер</option>
       <option value="logger">Логгер</option>
       <option value="policy">Политика</option>
-      <option value="test">Тестирование</option>
-      <option value="refactor">Рефакторинг</option>
+      <option value="test">Тест</option>
       <option value="multi-class">Множественные классы</option>
+      <option value="refactor">Рефакторинг</option>
       <option value="full-architecture">Полная архитектура</option>
     </select><br><br>
 
@@ -30,8 +28,8 @@
   </form>
 
   {% if code %}
-    <h2>Сгенерированный код:</h2>
-    <pre>{{ code }}</pre>
+    <h2>Результат:</h2>
+    {{ code|safe }}
   {% endif %}
 </body>
 </html>
