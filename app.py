@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
-from generator import build_prompt, generate_code
+from core.manager import get_active_agent
+from core.prompt import build_prompt
+from core.renderer import render_code
 
 app = Flask(__name__)
 
@@ -12,6 +14,7 @@ def index():
         description = request.form["description"]
 
         prompt = build_prompt(task_type, level, description)
-        code = generate_code(prompt)
+        agent = get_active_agent()
+        code = agent.generate(prompt)
 
-    return render_template("index.html", code=code)
+    return render_template("index.html", code=render_code(code))
