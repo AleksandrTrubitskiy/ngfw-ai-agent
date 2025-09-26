@@ -1,5 +1,5 @@
-import openai
-import os
+import openai, os
+from agents.base import BaseAgent
 
 class ChatGPTAgent(BaseAgent):
     def __init__(self):
